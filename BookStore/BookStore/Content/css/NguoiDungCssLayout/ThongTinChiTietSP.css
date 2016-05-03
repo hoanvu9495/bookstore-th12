@@ -1,0 +1,18 @@
+﻿.ChiTietSP {
+    color: gray;
+}
+
+    .ChiTietSP img {
+        float: left;
+        display: inline;
+    }
+
+    .ChiTietSP .Detail {
+        float: left;
+        display: block;
+        margin-left: 20px;
+    }
+
+        .ChiTietSP .Detail p {
+            font-size: medium;
+        }

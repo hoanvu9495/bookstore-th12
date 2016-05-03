@@ -1,0 +1,33 @@
+﻿@using BookStore.Models;
+@model IEnumerable<BookStore.Entities.BSSACH> 
+@{
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    ViewBag.Title = "Trang chủ";
+}
+@{
+    foreach (var item in Model)
+    {
+        <div class="item">
+            <div class="anhBia">
+                <img src="~/HinhAnhSp/@item.BIA" />
+            </div>
+            
+            <p class="tenSach">@item.TENSACH</p>
+            <div class="listItemDetail">
+
+                <p class="tacGia">@item.MATG</p>
+                <p class="giamGia">-30%</p>
+                <p class="gia">@item.GIABIA VNĐ</p>
+                <del>@item.GIABIA VNĐ</del>
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaSach=item.MASACH,@strURL=Request.Url.ToString()}))
+                {
+                    <button type="submit" class="btn btn-danger">Thêm vào giỏ hàng</button>
+                }
+                
+            </div>
+        </div>
+
+    }
+}
+
+

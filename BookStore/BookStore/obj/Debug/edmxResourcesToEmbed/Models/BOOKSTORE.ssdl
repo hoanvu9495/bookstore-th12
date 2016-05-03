@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BOOKSTOREModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BOOKSTORE.dbo.BSCTDH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BSCTDH">
+    <Key>
+      <PropertyRef Name="SOLUONG" />
+      <PropertyRef Name="DONGIA" />
+      <PropertyRef Name="KM" />
+    </Key>
+    <Property Name="MADH" Type="int" />
+    <Property Name="MASACH" Type="int" />
+    <Property Name="SOLUONG" Type="int" Nullable="false" />
+    <Property Name="DONGIA" Type="int" Nullable="false" />
+    <Property Name="KM" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BSDONHANG">
+    <Key>
+      <PropertyRef Name="MADH" />
+    </Key>
+    <Property Name="MADH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAKHACHHANG" Type="int" />
+    <Property Name="NGDAT" Type="datetime" Nullable="false" />
+    <Property Name="NGGIAO" Type="datetime" Nullable="false" />
+    <Property Name="DATHANHTOAN" Type="bit" Nullable="false" />
+    <Property Name="TINHTRANGGH" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BSKHUYENMAI">
+    <Key>
+      <PropertyRef Name="MAKM" />
+    </Key>
+    <Property Name="MAKM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NGBATDAU" Type="date" Nullable="false" />
+    <Property Name="NGKETTHUC" Type="date" Nullable="false" />
+    <Property Name="MASACH" Type="int" />
+    <Property Name="KM" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BSLOAI">
+    <Key>
+      <PropertyRef Name="MALOAI" />
+    </Key>
+    <Property Name="MALOAI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENLOAI" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="GHICHU" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="BSNXB">
+    <Key>
+      <PropertyRef Name="MANXB" />
+    </Key>
+    <Property Name="MANXB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENNXB" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SDT" Type="nchar" MaxLength="20" />
+    <Property Name="DIACHI" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="BSSACH">
+    <Key>
+      <PropertyRef Name="MASACH" />
+    </Key>
+    <Property Name="MASACH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MALOAI" Type="int" />
+    <Property Name="MANXB" Type="int" />
+    <Property Name="TENSACH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MATG" Type="int" />
+    <Property Name="SOLUONG" Type="int" Nullable="false" />
+    <Property Name="TRONGLUONG" Type="float" />
+    <Property Name="NGXB" Type="date" Nullable="false" />
+    <Property Name="GIABIA" Type="float" Nullable="false" />
+    <Property Name="SOTRANG" Type="int" Nullable="false" />
+    <Property Name="KHO" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="BIA" Type="nvarchar(max)" />
+    <Property Name="GIOITHIEU" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="BSSOTRUONGTG">
+    <Key>
+      <PropertyRef Name="MATG" />
+      <PropertyRef Name="MALOAI" />
+    </Key>
+    <Property Name="MATG" Type="int" Nullable="false" />
+    <Property Name="MALOAI" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BSTACGIA">
+    <Key>
+      <PropertyRef Name="MATG" />
+    </Key>
+    <Property Name="MATG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOTEN" Type="nvarchar" MaxLength="30" />
+    <Property Name="GT" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="GIOITHIEU" Type="nvarchar(max)" />
+    <Property Name="BUTDANH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NGSINH" Type="date" />
+  </EntityType>
+  <EntityType Name="BSUSER">
+    <Key>
+      <PropertyRef Name="MAUSR" />
+    </Key>
+    <Property Name="MAUSR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOTEN" Type="nvarchar" MaxLength="30" />
+    <Property Name="NGSINH" Type="date" />
+    <Property Name="GT" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="SDT" Type="nchar" MaxLength="20" />
+    <Property Name="DIACHI" Type="nvarchar(max)" />
+    <Property Name="TAIKHOAN" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="MATKHAU" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__BSCTDH__MADH__276EDEB3">
+    <End Role="BSDONHANG" Type="Self.BSDONHANG" Multiplicity="0..1" />
+    <End Role="BSCTDH" Type="Self.BSCTDH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BSDONHANG">
+        <PropertyRef Name="MADH" />
+      </Principal>
+      <Dependent Role="BSCTDH">
+        <PropertyRef Name="MADH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BSCTDH__MASACH__286302EC">
+    <End Role="BSSACH" Type="Self.BSSACH" Multiplicity="0..1" />
+    <End Role="BSCTDH" Type="Self.BSCTDH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BSSACH">
+        <PropertyRef Name="MASACH" />
+      </Principal>
+      <Dependent Role="BSCTDH">
+        <PropertyRef Name="MASACH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BSDONHANG__MAKHA__25869641">
+    <End Role="BSUSER" Type="Self.BSUSER" Multiplicity="0..1" />
+    <End Role="BSDONHANG" Type="Self.BSDONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BSUSER">
+        <PropertyRef Name="MAUSR" />
+      </Principal>
+      <Dependent Role="BSDONHANG">
+        <PropertyRef Name="MAKHACHHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BSKHUYENM__MASAC__22AA2996">
+    <End Role="BSSACH" Type="Self.BSSACH" Multiplicity="0..1" />
+    <End Role="BSKHUYENMAI" Type="Self.BSKHUYENMAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BSSACH">
+        <PropertyRef Name="MASACH" />
+      </Principal>
+      <Dependent Role="BSKHUYENMAI">
+        <PropertyRef Name="MASACH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BSSACH__MALOAI__1DE57479">
+    <End Role="BSLOAI" Type="Self.BSLOAI" Multiplicity="0..1" />
+    <End Role="BSSACH" Type="Self.BSSACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BSLOAI">
+        <PropertyRef Name="MALOAI" />
+      </Principal>
+      <Dependent Role="BSSACH">
+        <PropertyRef Name="MALOAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BSSACH__MANXB__1ED998B2">
+    <End Role="BSNXB" Type="Self.BSNXB" Multiplicity="0..1" />
+    <End Role="BSSACH" Type="Self.BSSACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BSNXB">
+        <PropertyRef Name="MANXB" />
+      </Principal>
+      <Dependent Role="BSSACH">
+        <PropertyRef Name="MANXB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BSSACH__MATG__1FCDBCEB">
+    <End Role="BSTACGIA" Type="Self.BSTACGIA" Multiplicity="0..1" />
+    <End Role="BSSACH" Type="Self.BSSACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BSTACGIA">
+        <PropertyRef Name="MATG" />
+      </Principal>
+      <Dependent Role="BSSACH">
+        <PropertyRef Name="MATG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BSSOTRUON__MALOA__1B0907CE">
+    <End Role="BSLOAI" Type="Self.BSLOAI" Multiplicity="1" />
+    <End Role="BSSOTRUONGTG" Type="Self.BSSOTRUONGTG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BSLOAI">
+        <PropertyRef Name="MALOAI" />
+      </Principal>
+      <Dependent Role="BSSOTRUONGTG">
+        <PropertyRef Name="MALOAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BSSOTRUONG__MATG__1A14E395">
+    <End Role="BSTACGIA" Type="Self.BSTACGIA" Multiplicity="1" />
+    <End Role="BSSOTRUONGTG" Type="Self.BSSOTRUONGTG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BSTACGIA">
+        <PropertyRef Name="MATG" />
+      </Principal>
+      <Dependent Role="BSSOTRUONGTG">
+        <PropertyRef Name="MATG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BOOKSTOREModelStoreContainer">
+    <EntitySet Name="BSDONHANG" EntityType="Self.BSDONHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BSKHUYENMAI" EntityType="Self.BSKHUYENMAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BSLOAI" EntityType="Self.BSLOAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BSNXB" EntityType="Self.BSNXB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BSSACH" EntityType="Self.BSSACH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BSSOTRUONGTG" EntityType="Self.BSSOTRUONGTG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BSTACGIA" EntityType="Self.BSTACGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BSUSER" EntityType="Self.BSUSER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BSCTDH" EntityType="Self.BSCTDH" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BSCTDH].[MADH] AS [MADH], 
+    [BSCTDH].[MASACH] AS [MASACH], 
+    [BSCTDH].[SOLUONG] AS [SOLUONG], 
+    [BSCTDH].[DONGIA] AS [DONGIA], 
+    [BSCTDH].[KM] AS [KM]
+    FROM [dbo].[BSCTDH] AS [BSCTDH]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__BSCTDH__MADH__276EDEB3" Association="Self.FK__BSCTDH__MADH__276EDEB3">
+      <End Role="BSDONHANG" EntitySet="BSDONHANG" />
+      <End Role="BSCTDH" EntitySet="BSCTDH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BSCTDH__MASACH__286302EC" Association="Self.FK__BSCTDH__MASACH__286302EC">
+      <End Role="BSSACH" EntitySet="BSSACH" />
+      <End Role="BSCTDH" EntitySet="BSCTDH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BSDONHANG__MAKHA__25869641" Association="Self.FK__BSDONHANG__MAKHA__25869641">
+      <End Role="BSUSER" EntitySet="BSUSER" />
+      <End Role="BSDONHANG" EntitySet="BSDONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BSKHUYENM__MASAC__22AA2996" Association="Self.FK__BSKHUYENM__MASAC__22AA2996">
+      <End Role="BSSACH" EntitySet="BSSACH" />
+      <End Role="BSKHUYENMAI" EntitySet="BSKHUYENMAI" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BSSACH__MALOAI__1DE57479" Association="Self.FK__BSSACH__MALOAI__1DE57479">
+      <End Role="BSLOAI" EntitySet="BSLOAI" />
+      <End Role="BSSACH" EntitySet="BSSACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BSSACH__MANXB__1ED998B2" Association="Self.FK__BSSACH__MANXB__1ED998B2">
+      <End Role="BSNXB" EntitySet="BSNXB" />
+      <End Role="BSSACH" EntitySet="BSSACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BSSACH__MATG__1FCDBCEB" Association="Self.FK__BSSACH__MATG__1FCDBCEB">
+      <End Role="BSTACGIA" EntitySet="BSTACGIA" />
+      <End Role="BSSACH" EntitySet="BSSACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BSSOTRUON__MALOA__1B0907CE" Association="Self.FK__BSSOTRUON__MALOA__1B0907CE">
+      <End Role="BSLOAI" EntitySet="BSLOAI" />
+      <End Role="BSSOTRUONGTG" EntitySet="BSSOTRUONGTG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BSSOTRUONG__MATG__1A14E395" Association="Self.FK__BSSOTRUONG__MATG__1A14E395">
+      <End Role="BSTACGIA" EntitySet="BSTACGIA" />
+      <End Role="BSSOTRUONGTG" EntitySet="BSSOTRUONGTG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

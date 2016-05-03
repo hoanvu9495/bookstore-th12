@@ -1,0 +1,80 @@
+﻿@model BookStore.Entities.BSUSER
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<div class="dangKy">
+    <div class="alert alert-warning">
+        <strong>Chú ý!</strong> Những trường đánh dấu * yêu cầu nhập đầy đủ.
+    </div>
+    <h2>Tạo tài khoản @ViewBag.mes</h2>
+    <h3>@ViewBag.DangKy</h3>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <fieldset class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="ttCaNhan">
+            
+            <legend>Thông tin cá nhân</legend>
+            <div class="form-group">
+                <span class="text-danger">* </span><label> Họ tên:</label>
+                @Html.TextBoxFor(model => model.HOTEN, new { @class = "form-control" })
+                @*<input type="text" class="form-control" name="HoTen" />*@
+            </div>
+            <div class="form-group">
+                <span class="text-danger">* </span><label> Ngày sinh:</label>
+                @Html.TextBoxFor(model => model.NGSINH, new { @class = "form-control", @type = "date" })
+                @*<input type="date" class="form-control" name="NgSinh" />*@
+            </div>
+            <div class="form-group">
+                <span class="text-danger">* </span><label> Giới tính:</label><br />
+                
+                Nam @Html.RadioButtonFor(model => model.GT, "Nam")
+                
+                Nữ @Html.RadioButtonFor(model => model.GT, "Nữ")
+                
+                @*<select name="GT" class="form-control">
+                        <option value="Nam">Nam</option>
+                        <option value="N'Nữ'">Nữ</option>
+                    </select>*@
+            </div>
+            <div class="form-group">
+                <label>Địa chỉ:</label>
+                @Html.TextAreaFor(model => model.DIACHI, new { @class = "form-control" })
+                @*<textarea name="diaChi" class="form-control" rows="3"></textarea>*@
+            </div>
+        </fieldset>
+        <fieldset id="ttTaiKhoan" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <legend>Thông tin tài khoản</legend>
+            <div class="form-group">
+                <span class="text-danger">* </span><label>Tài khoản:</label>
+                @Html.TextBoxFor(model => model.TAIKHOAN, new { @class = "form-control" })
+                @*<input type="text" class="form-control" name="TaiKhoan" />*@
+            </div>
+            <div class="form-group">
+                <span class="text-danger">* </span><label>Mật khẩu:</label>
+                @Html.TextBoxFor(model => model.MATKHAU, new { @class = "form-control" , @type="password"})
+                @*<input type="password" class="form-control" name="MatKhau" />*@
+            </div>
+            @*<div class="form-group">
+                <span class="text-danger">* </span><label>Xác nhận mật khẩu:</label>
+                <input type="password" class="form-control" name="xacNhanMatKhau" />
+            </div>*@
+            <div class="form-group">
+                <span class="text-danger">* </span><label>Email:</label>
+                @Html.TextBoxFor(model => model.HOTEN, new { @class = "form-control", @type="email"})
+                @*<input type="email" class="form-control" name="Email" />*@
+            </div>
+        </fieldset>
+        <div id="btnDangKy">
+            <input type="submit" value="Đăng ký" class="btn btn-md btn-default" />
+        </div>
+    }
+
+</div>
+
+
+
+
+

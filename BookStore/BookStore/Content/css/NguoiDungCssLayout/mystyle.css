@@ -1,0 +1,438 @@
+﻿#logo{
+    margin-top: -9%;
+}
+/*Footer*/
+#footer {
+    clear: both;
+    border: 1px solid gray;
+    padding: 5px 30px;
+    margin-top: 10px;
+    z-index: 10000;
+}
+/*Đăngký css*/
+.dangKy {
+    background-color: white;
+    margin: 10px 10px;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+#ttCaNhan {
+    display: inline;
+    float: left;
+}
+
+    #ttCaNhan input {
+        display: block;
+        clear: both;
+        width: inherit;
+    }
+
+    #ttCaNhan select {
+        display: block;
+        clear: both;
+        width: inherit;
+    }
+
+#ttTaiKhoan {
+    display: block;
+    float: left;
+}
+
+    #ttTaiKhoan input {
+        display: block;
+        clear: both;
+        width: inherit;
+    }
+
+#btnDangKy {
+    width: inherit;
+    clear: both;
+    text-align: right;
+    padding: 10px;
+    background-color: white;
+    border-top: 1px solid #F2F2F2;
+}
+/*layout css*/
+#MenuTop {
+    position: fixed-top;
+    background-color: rgb(3,153,126);
+    //height: 100px;
+}
+
+    #MenuTop a:hover {
+        color: White;
+    }
+
+#MenuTop {
+}
+
+.navbar {
+    border-radius: 0px;
+    border-color: rgb(3,153,126);
+}
+
+#dangNhapDangKy {
+    z-index: 0;
+    color: white;
+}
+
+    #dangNhapDangKy a {
+        color: white;
+        text-decoration: none;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    #dangNhapDangKy ul {
+        display: inline;
+    }
+
+    #dangNhapDangKy li {
+        display: inline;
+    }
+
+#timKiem {
+    float: left;
+    display: inline;
+    background-color: white;
+    width: 100%;
+    height: 39px;
+    padding: 2px 10px 0px 10px;
+}
+
+    #timKiem input {
+        display: inline;
+        float: left;
+        width: 80%;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    #timKiem button {
+        float: left;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        width: 20%;
+    }
+
+#MenuTop span {
+    color: white;
+}
+
+#FrmMain {
+    margin-top: 60px;
+    clear: both;
+}
+
+#menuContact {
+    width: 20%;
+}
+
+
+#navLeft {
+    float: left;
+    width: 18%;
+    border-right: 1px solid #F2F2F2;
+}
+
+#navLeftTop {
+    margin: 0px;
+}
+
+    #navLeftTop li {
+        border-left-style: solid;
+        border-width: 1px;
+        border-color: #F2F2F2;
+    }
+
+        #navLeftTop li img {
+            width: 16px;
+            height: 16px;
+            opacity: 0.5;
+            color: #F2F2F2;
+        }
+
+        #navLeftTop li:hover img {
+            opacity: 1;
+            color: #F2F2F2;
+        }
+
+#navLeftMain {
+    margin: 0px;
+}
+
+#listDanhMuc {
+    margin: 0px;
+}
+
+#contact {
+    padding: 10px;
+    color: white;
+    background-color: rgb(3,153,126);
+}
+
+#contactDetail {
+}
+
+#icon-phone img {
+    float: left;
+    width: 60px;
+    height: 70px;
+    padding: 3px;
+}
+
+.title {
+    background-color: rgb(3,153,126);
+    padding: 10px;
+    color: white;
+    margin-bottom: 0px;
+}
+
+/*#navTitle {
+    padding: 10px;
+    color: white;
+}*/
+
+#listHot {
+    /*background-color: white;*/
+    margin-top: 10px;
+}
+
+.listHotItem {
+    position: relative;
+    padding: 10px;
+    border-bottom: 1px solid gray;
+    margin-left: 10px;
+}
+
+.rankItem {
+    background-color: #00b7f1;
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 99;
+    padding: 0px 5px;
+    border-radius: 5px;
+}
+
+.listHotImg {
+    float: left;
+    display: inline;
+    width: 70px;
+    height: auto;
+    padding: 10px 5px;
+}
+
+.listHotDetail {
+    position:relative;
+    margin-left: 90px;
+}
+
+.listHotDetail .tenSach {
+    text-decoration: none;
+    color: red;
+    font-size: small;
+    word-wrap: break-word;
+}
+.listHotDetail .tenSach:hover {
+    text-decoration: none;
+    color: blue;
+    font-size: medium;
+    word-wrap: break-word;
+}
+.listHotDetail .tacGia {
+    color: gray;
+    font-size: x-small;
+}
+.listHotDetail .gia{
+    font-weight: bold;
+}
+#tip {
+    float: left;
+    padding: 10px;
+    width: 100%;
+}
+
+#banner {
+    float: left;
+    margin: 2%;
+    width: 96%;
+    background-color: white;
+}
+
+#navMain {
+    float: left;
+    width: 64%;
+}
+
+.mainItem {
+    width: 100%;
+    padding: 20px;
+}
+
+.listItemDetail {
+    display: inline-block;
+    height: 144px;
+    padding: 0px 20px;
+}
+
+.item {
+    position: relative;
+    float: left;
+    padding: 5px;
+    width: 25%;
+    height: 520px;
+}
+
+    .item:hover {
+        border: 1px solid gray;
+        border-radius: 3px;
+    }
+
+    .item button {
+        display: none;
+    }
+
+    .item:hover button {
+        display: block;
+    }
+
+    .item .tenSach {
+        word-wrap: break-word;
+        font-size: medium;
+        padding: 10px 20px;
+    }
+
+    .item .listItemDetail {
+        position: absolute;
+        bottom: 10px;
+    }
+.anhBia{
+    text-align:center;
+    width: 100%;
+}
+.listItemDetail .tacGia {
+    word-wrap: break-word;
+    font-size:smaller;
+}
+
+.item .anhBia {
+    width: 100%;
+    height: 300px;
+}
+
+.item img {
+    max-height: 300px;
+    width: 170px;
+    /*margin: 20px;*/
+    horizital-align: middle;
+}
+
+#navRight {
+    float: left;
+    width: 18%;
+    background-color: white;
+    height: 50px;
+}
+
+#mainDetail {
+    float: left;
+    display: inline;
+    width: 100%;
+    margin: 10px;
+    background-color: white;
+    border-top: 1px solid gray;
+    padding: 20px;
+}
+
+@media only screen and (max-width:600px) {
+    .nav-toggle {
+        display: block;
+        float: right;
+    }
+
+    #dangNhapDangKy li {
+        display: none;
+    }
+
+    #navTitle {
+        margin-bottom: 0px;
+        margin-top: 10px;
+    }
+
+    #listDanhMuc a {
+        display: none;
+    }
+
+    #listDanhMuc #navTitle {
+        display: block;
+    }
+
+    #listDanhMuc:hover a {
+        display: block;
+    }
+
+    #FrmMain {
+        display: block;
+    }
+
+    #mainDetail {
+        display: block;
+    }
+
+    #dangNhapDangKy li {
+        display: block;
+        visibility: hidden;
+    }
+
+    #dangNhapDangKy ul {
+        display: none;
+    }
+
+    #navLeftTop li {
+        display: none;
+    }
+
+    #navMain {
+        display: block;
+        width: 100%;
+    }
+
+    #navRight {
+        display: none;
+    }
+
+    #MenuTop {
+        position: relative;
+        margin-top: 0px;
+    }
+
+    #FrmMain {
+        position: relative;
+        margin-left: 0px;
+    }
+
+    #tip {
+        visibility: hidden;
+    }
+
+    #navLeft {
+        display: block;
+        width: 100%;
+    }
+
+    #navLeftTop ul {
+        display: block;
+    }
+
+    #navLeftTop li {
+        width: 24%;
+        display: none;
+    }
+
+    #listHot {
+        display: none;
+    }
+}

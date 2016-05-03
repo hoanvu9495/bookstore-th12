@@ -1,0 +1,93 @@
+﻿@model IEnumerable<BookStore.Entities.BSSACH>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BSLOAI.TENLOAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BSNXB.TENNXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BSTACGIA.HOTEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TENSACH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SOLUONG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRONGLUONG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIABIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SOTRANG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KHO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIOITHIEU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISDELETE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BSLOAI.TENLOAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BSNXB.TENNXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BSTACGIA.HOTEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENSACH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOLUONG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRONGLUONG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIABIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOTRANG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KHO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIOITHIEU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISDELETE)
+        </td>
+        
+    </tr>
+}
+
+</table>

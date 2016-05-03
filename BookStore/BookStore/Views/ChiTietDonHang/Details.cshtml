@@ -1,0 +1,75 @@
+﻿@model BookStore.Entities.BSCTDH
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BSCTDH</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BSDONHANG.MADH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BSDONHANG.MADH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BSSACH.TENSACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BSSACH.TENSACH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOLUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOLUONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DONGIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DONGIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THANHTIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THANHTIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISDELETE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISDELETE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BookStore.Entities.BSDONHANG>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BSUSER.HOTEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGDAT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGGIAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATHANHTOAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TINHTRANGGH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TONGTIEN)
+        </th>
+     
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BSUSER.HOTEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGDAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGGIAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATHANHTOAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TINHTRANGGH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TONGTIEN)
+        </td>
+
+        <td>
+
+            @Html.ActionLink("Details", "Details", new { id=item.MADH }) 
+
+        </td>
+    </tr>
+}
+
+</table>
