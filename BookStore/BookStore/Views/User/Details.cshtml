@@ -7,9 +7,12 @@
 
 <h2>Thông tin chi tiết</h2>
 
-<div>
+<div >
 	<hr />
+
+    <img src="~/Avatar/@Model.avatar" class="img-circle" width="100" style="margin-left:125px; margin-bottom: 10px"/>
     <dl class="dl-horizontal">
+        
         <dt>
             @Html.DisplayNameFor(model => model.HOTEN)
         </dt>
@@ -57,6 +60,13 @@
         <dd>
             @Html.DisplayFor(model => model.DIACHI)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.USRANK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USRANK)
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.TAIKHOAN)
@@ -77,6 +87,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Thay đổi", "Edit", new { id = Model.MAUSR }) |
-    @Html.ActionLink("Quay lại danh sách", "Index")
+    @Html.ActionLink("Thay đổi", "Edit", new { id = Model.MAUSR }, new { @class="btn btn-md btn-danger"}) 
+    @Html.ActionLink("Quay lại danh sách", "Index","User", new { @class="btn btn-primary btn-md"})
 </p>

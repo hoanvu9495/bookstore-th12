@@ -3,6 +3,7 @@
 
 <table class="table">
     <tr>
+        <th>STT</th>
         <th>
             @Html.DisplayNameFor(model => model.BSLOAI.TENLOAI)
         </th>
@@ -44,9 +45,10 @@
         </th>
         <th></th>
     </tr>
-
+    @{int stt = 1;}
 @foreach (var item in Model) {
     <tr>
+        <td>@stt</td>
         <td>
             @Html.DisplayFor(modelItem => item.BSLOAI.TENLOAI)
         </td>
@@ -84,10 +86,12 @@
             @Html.DisplayFor(modelItem => item.GIOITHIEU)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ISDELETE)
+            @*@Html.DisplayFor(modelItem => item.ISDELETE)*@
+            <input type="checkbox" checked="@item.ISDELETE" disabled/>
         </td>
         
     </tr>
+    stt++; 
 }
 
 </table>

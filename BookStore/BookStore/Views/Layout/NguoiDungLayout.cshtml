@@ -45,7 +45,14 @@
                 @{
                     if (SessionHelper.GetSession() != null)
                     {
-                        <li><a><strong>@SessionHelper.GetSession().userName</strong></a></li>
+                        <li>
+                            <img src="~/Avatar/@SessionHelper.GetSession().avatar" width="30" class="img-circle" style="margin-top: 30%"/>
+                        </li>
+                        <li>
+                            <a href="~/User/Details?id=@SessionHelper.GetSession().ID">
+                                <strong>@SessionHelper.GetSession().userName</strong>
+                            </a>
+                        </li>
                         if (SessionHelper.GetSession().userRank != 0)
                         {
                             <li id="adminBtn"><a href="~/Admin/Index">Admin</a></li>
@@ -63,7 +70,7 @@
                         <li id="dangNhapBtn"><a href="~/Login/Index"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
                     }
                 }
-       
+
 
             </ul>
         </div>
@@ -150,9 +157,9 @@
                 @Html.Partial("~/Views/Sach/listSachMoi.cshtml", BookDAO.listSachMoi(4));
                 @*Sách mới renderPage()*@
             </div>
-            <div  class="list-group">
+            <div class="list-group">
                 <a href="#"><p class="title"><span class="glyphicon glyphicon-list"> </span> Nhà xuất bản </p></a>
-                @Html.Partial("~/Views/NXB/NhaXuatBanPartial.cshtml",NhaXuatBanDAO.ListNXB())
+                @Html.Partial("~/Views/NXB/NhaXuatBanPartial.cshtml", NhaXuatBanDAO.ListNXB())
             </div>
 
         </div>

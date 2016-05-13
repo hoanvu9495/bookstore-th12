@@ -8,6 +8,7 @@ namespace BookStore.Code
     [Serializable]
     public class UserSession
     {
+        public int ID { get; set; }
         public string userName { set; get; }
         public int userRank { set; get; }
         public string avatar { set; get; }

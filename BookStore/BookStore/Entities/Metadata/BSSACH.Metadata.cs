@@ -32,7 +32,7 @@ namespace BookStore.Entities
             public int? MATG { get; set; }
 
             [Display(Name = "Số lượng")]
-            [RegularExpression(@"[0-9]", ErrorMessage = "Vui lòng nhập số cho trường này")]
+            [RegularExpression(@"[0-9]+", ErrorMessage = "Vui lòng nhập số cho trường này")]
             public int SOLUONG { get; set; }
 
             [Display(Name = "Trọng lượng (gram)")]
@@ -43,12 +43,12 @@ namespace BookStore.Entities
             [DataType(DataType.Date)]
             public DateTime NGXB { get; set; }
 
-            [RegularExpression(@"[0-9]", ErrorMessage = "Vui lòng nhập số cho trường này")]
+            [RegularExpression(@"[0-9]+", ErrorMessage = "Vui lòng nhập số cho trường này")]
             [Display(Name = "Giá bìa")]
             public int GIABIA { get; set; }
 
             [Display(Name = "Số trang")]
-            [RegularExpression(@"[0-9]", ErrorMessage = "Vui lòng nhập số cho trường này")]
+            [RegularExpression(@"[0-9]+", ErrorMessage = "Vui lòng nhập số cho trường này")]
             public int SOTRANG { get; set; }
 
             [Required]

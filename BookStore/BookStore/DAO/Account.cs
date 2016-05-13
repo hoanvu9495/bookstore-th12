@@ -36,6 +36,11 @@ namespace BookStore.DAO
             var ret = myDB.BSUSERs.Where(n => n.TAIKHOAN == userName).Select(n => n.avatar).SingleOrDefault();
             return ret;
         }
+        public int getId(string userName)
+        {
+            var ret = myDB.BSUSERs.Where(n => n.TAIKHOAN == userName).Select(n => n.MAUSR).SingleOrDefault();
+            return ret;
+        }
         public static int findIdByUserName(string userName)
         {
             DBContent myDB = new DBContent();

@@ -69,7 +69,7 @@
                 @Html.DisplayFor(modelItem => item.MATKHAU)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ISDELETE)
+                <input type="checkbox" checked="@item.ISDELETE" disabled/>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.USRANK)

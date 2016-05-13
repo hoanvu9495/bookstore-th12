@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using BookStore.Entities;
 using System.IO;
+using PagedList;
+using PagedList.Mvc;
+using BookStore.DAO;
 
 namespace BookStore.Controllers.Admin
 {
@@ -16,10 +19,14 @@ namespace BookStore.Controllers.Admin
         private DBContent db = new DBContent();
 
         // GET: /DauSach/
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var bssaches = db.BSSACHes.Include(b => b.BSLOAI).Include(b => b.BSNXB).Include(b => b.BSTACGIA);
-            return View(bssaches.ToList());
+            //tạo môt biến số sản phẩm trên trang
+            int pageSize = 10;
+            //Số trang
+            int pageNumber = (page ?? 1);
+            var bssaches = db.BSSACHes.OrderBy(n => n.MASACH).ToPagedList(pageNumber, pageSize);
+            return View(bssaches);
         }
 
         // GET: /DauSach/Details/5
@@ -106,24 +113,26 @@ namespace BookStore.Controllers.Admin
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MASACH,MALOAI,MANXB,TENSACH,MATG,SOLUONG,TRONGLUONG,NGXB,GIABIA,SOTRANG,KHO,BIA,GIOITHIEU")] BSSACH bssach, HttpPostedFileBase FileUpload)
+        public ActionResult Edit([Bind(Include = "MASACH,MALOAI,MANXB,TENSACH,MATG,SOLUONG,TRONGLUONG,NGXB,GIABIA,SOTRANG,KHO,BIA,GIOITHIEU")] BSSACH bssach, HttpPostedFileBase FileUpload, string BiaCu)
         {
+
             if (ModelState.IsValid)
             {
-                //Lưu tên FIle
-                var FileName = Path.GetFileName(FileUpload.FileName);
-                //Lưu đường dẫn cho File
-                var path = Path.Combine(Server.MapPath("~/HinhAnhSp"), FileName);
-                //Kiểm tra xem hình ảnh đã tồn tại chưa?
-                if (System.IO.File.Exists(path))
+                if (FileUpload != null)
                 {
-                    ViewBag.ThongBao = "Hình ảnh đã tồn tại";
-                }
-                else
-                {
+                    //Lưu tên FIle
+                    var FileName = Path.GetFileName(FileUpload.FileName);
+                    //Lưu đường dẫn cho File
+                    var path = Path.Combine(Server.MapPath("~/HinhAnhSp"), FileName);
+                    //Kiểm tra xem hình ảnh đã tồn tại chưa?
                     FileUpload.SaveAs(path);
                     bssach.BIA = FileName;
                 }
+                else
+                {
+                    bssach.BIA = BiaCu;
+                }
+
                 db.Entry(bssach).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

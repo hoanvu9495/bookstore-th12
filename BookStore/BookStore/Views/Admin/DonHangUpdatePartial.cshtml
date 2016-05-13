@@ -3,6 +3,7 @@
 
 <table class="table">
     <tr>
+        <th>STT</th>
         <th>
             @Html.DisplayNameFor(model => model.BSUSER.HOTEN)
         </th>
@@ -26,9 +27,10 @@
         </th>
         <th></th>
     </tr>
-
+    @{int stt = 1;}
 @foreach (var item in Model) {
     <tr>
+        <td>@stt</td>
         <td>
             @Html.DisplayFor(modelItem => item.BSUSER.HOTEN)
         </td>
@@ -52,6 +54,7 @@
         </td>
        <td><a class="btn btn-info btn-sm"  href="~/ChiTietDonHang/Details?id=@item.MADH">Thông tin</a></td>
     </tr>
+    stt++;
 }
 
 </table>

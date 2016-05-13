@@ -1,11 +1,11 @@
 ﻿@model BookStore.Entities.BSSACH
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Thay đổi thông tin đầu sách";
     Layout = "~/Views/Layout/AdminLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Thay đổi thông tin</h2>
 
 @using (Html.BeginForm("Edit", "DauSach", FormMethod.Post, new { @enctype="multipart/form-data"}))
 {
@@ -16,7 +16,7 @@
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.MASACH)
-
+        <input type="text" value="@Model.BIA" class="hide" name="BiaCu"/>
         <div class="form-group">
             @Html.LabelFor(model => model.MALOAI, "MALOAI", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -117,12 +117,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Quay lại", "Index", "DauSach", new { @class="btn btn-md btn-primary"})
 </div>
