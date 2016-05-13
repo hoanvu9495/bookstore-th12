@@ -12,6 +12,8 @@ namespace BookStore.Entities.Metadata
     {
         internal sealed class BSLOAIMetadata
         {
+            public int MALOAI { get; set; }
+
             [Display(Name="Tên")]
             public string TENLOAI { get; set; }
 
@@ -20,6 +22,8 @@ namespace BookStore.Entities.Metadata
 
             [Display(Name = "Giới thiệu")]
             public string GIOITHIEU { get; set; }
+
+            public bool? ISDELETE { get; set; }
         }
     }
 }

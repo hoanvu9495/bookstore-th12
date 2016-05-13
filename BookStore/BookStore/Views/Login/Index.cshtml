@@ -7,7 +7,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, null, " ");
+    @Html.ValidationSummary(true, null, new { @class="alert alert-danger alert-md"});
     <div class="form-group">
         <label class="control-label col-sm-4" for="taiKhoan">Tài khoản:</label>
         <div class="col-sm-6">

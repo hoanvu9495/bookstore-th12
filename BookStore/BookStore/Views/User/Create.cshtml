@@ -1,13 +1,13 @@
 ﻿@model BookStore.Entities.BSUSER
 
 @{
-    ViewBag.Title = "Thêm mới";
+    ViewBag.Title = "Thêm mới thành viên";
     Layout = "~/Views/Layout/AdminLayout.cshtml";
 }
 
 <h2>Thêm mới</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "User", FormMethod.Post, new { @enctype="multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
 
@@ -17,79 +17,85 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.HOTEN, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HOTEN)
+            <div class="col-md-3">
+                @*@Html.EditorFor(model => model.HOTEN)*@
+                <input class="form-control" type="text" name="HOTEN"/>
                 @Html.ValidationMessageFor(model => model.HOTEN)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.NGSINH, new { @class = "control-label col-md-2" })
-            <div class="col-md-2">
-                <input type="datetime" name="NGSINH" />
-
+            <div class="col-md-3">
+                <input type="date" name="NGSINH" class="form-control"/>
                 @Html.ValidationMessageFor(model => model.NGSINH)
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.GT, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <select name="GT">
-                        <option value="Nam">Nam</option>
-                        <option value="Nữ">Nữ</option>
-                    </select>
-                    @Html.ValidationMessageFor(model => model.GT)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.EMAIL, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <input type="email" name="EMAIL" />
-                    @Html.ValidationMessageFor(model => model.EMAIL)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.SDT, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.SDT)
-                    @Html.ValidationMessageFor(model => model.SDT)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.DIACHI, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <input type="text" name="DIACHI" />
-                    @Html.ValidationMessageFor(model => model.DIACHI)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.TAIKHOAN, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.TAIKHOAN)
-                    @Html.ValidationMessageFor(model => model.TAIKHOAN)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.MATKHAU, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <input type="password" name="MATKHAU" />
-                    @Html.ValidationMessageFor(model => model.MATKHAU)
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.GT, new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                <select name="GT" class="form-control">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.GT)
             </div>
         </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.EMAIL, new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                <input type="email" name="EMAIL" class="form-control" />
+                @Html.ValidationMessageFor(model => model.EMAIL)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SDT, new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @*@Html.EditorFor(model => model.SDT, new { @class="form-control"})*@
+                <input type="text" class="form-control" name="SDT"/>
+                @Html.ValidationMessageFor(model => model.SDT)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIACHI, new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                <textarea class="form-control" rows="3" name="DIACHI" ></textarea>
+                @Html.ValidationMessageFor(model => model.DIACHI)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TAIKHOAN, new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @*@Html.EditorFor(model => model.TAIKHOAN)*@
+                <input type="text" class="form-control" name="TAIKHOAN"/>
+                @Html.ValidationMessageFor(model => model.TAIKHOAN)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MATKHAU, new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                <input type="password" class="form-control" name="MATKHAU" />
+                @Html.ValidationMessageFor(model => model.MATKHAU)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Ảnh đại diện", new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                <input type="file" class="form-control" accept="image/x-png, image/gif, image/jpeg" name="FileUpload">
+                @ViewBag.ThongBao
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
     </div>
 
 }

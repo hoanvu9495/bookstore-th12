@@ -10,5 +10,6 @@ namespace BookStore.Code
     {
         public string userName { set; get; }
         public int userRank { set; get; }
+        public string avatar { set; get; }
     }
 }

@@ -1,12 +1,14 @@
 ﻿@model IEnumerable<BookStore.Entities.BSUSER>
 
+
 <table class="table">
     <tr>
+        <th>STT</th>
         <th>
-            @Html.DisplayNameFor(model => model.HOTEN)
+            @Html.DisplayNameFor(model => model.First().HOTEN)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NGSINH)
+            @Html.DisplayNameFor(model => model.First().NGSINH)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.GT)
@@ -34,40 +36,46 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.HOTEN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NGSINH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMAIL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DIACHI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TAIKHOAN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MATKHAU)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ISDELETE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.USRANK)
-        </td>
-    </tr>
-}
+    @{int stt = 1;}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <p>@stt</p>
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HOTEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NGSINH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIACHI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TAIKHOAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MATKHAU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISDELETE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.USRANK)
+            </td>
+        </tr>
+        stt++;
+    }
 
 </table>

@@ -31,6 +31,11 @@ namespace BookStore.DAO
             int rank = ret==null?0:int.Parse(ret.ToString());
             return rank;
         }
+        public string getAvatar(string userName)
+        {
+            var ret = myDB.BSUSERs.Where(n => n.TAIKHOAN == userName).Select(n => n.avatar).SingleOrDefault();
+            return ret;
+        }
         public static int findIdByUserName(string userName)
         {
             DBContent myDB = new DBContent();

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<BookStore.Entities.BSTACGIA>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Quản lý tác giả";
     Layout = "~/Views/Layout/AdminLayout.cshtml";
 }
 
@@ -11,19 +11,19 @@
 <table class="table table-hover table-bordered">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.HOTEN)
+            @Html.DisplayNameFor(model => model.First().HOTEN)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GT)
+            @Html.DisplayNameFor(model => model.First().GT)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GIOITHIEU)
+            @Html.DisplayNameFor(model => model.First().GIOITHIEU)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BUTDANH)
+            @Html.DisplayNameFor(model => model.First().BUTDANH)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NGSINH)
+            @Html.DisplayNameFor(model => model.First().NGSINH)
         </th>
         <th style="width:100px">Chức năng</th>
     </tr>

@@ -29,7 +29,7 @@ namespace BookStore.Controllers
             {
                 //var rank = acc.getRank(model.UserName);
                 //SessionHelper.SetSession(new UserSession() { userName = model.UserName, userRank= rank  });
-                SessionHelper.SetSession(new UserSession() { userName = model.UserName , userRank= acc.getRank(model.UserName)});
+                SessionHelper.SetSession(new UserSession() { userName = model.UserName , userRank= acc.getRank(model.UserName), avatar=acc.getAvatar(model.UserName)});
                 return RedirectToAction("Index", "Home");
             }
             else

@@ -716,6 +716,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Avatar\" />
     <Folder Include="Scripts\LoginJS\" />
     <Folder Include="Views\LogOut\" />
   </ItemGroup>

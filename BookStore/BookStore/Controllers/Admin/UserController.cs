@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BookStore.Entities;
+using System.IO;
 
 namespace BookStore.Controllers.Admin
 {
@@ -46,10 +47,24 @@ namespace BookStore.Controllers.Admin
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="MAUSR,HOTEN,NGSINH,GT,EMAIL,SDT,DIACHI,TAIKHOAN,MATKHAU")] BSUSER bsuser)
+        [ValidateInput(false)]
+        public ActionResult Create([Bind(Include="MAUSR,HOTEN,NGSINH,GT,EMAIL,SDT,DIACHI,TAIKHOAN,MATKHAU")] BSUSER bsuser,HttpPostedFileBase FileUpload)
         {
+            
             if (ModelState.IsValid)
             {
+                string fileName = Path.GetFileName(FileUpload.FileName);
+                string path = Path.Combine(Server.MapPath("~/Avatar"), fileName);
+                if (System.IO.File.Exists(path))
+                {
+                    bsuser.avatar = fileName;
+                }
+                else
+                {
+                    FileUpload.SaveAs(path);
+                    bsuser.avatar = fileName;
+                }
+                bsuser.USRANK = 0;
                 db.BSUSERs.Add(bsuser);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +93,24 @@ namespace BookStore.Controllers.Admin
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="MAUSR,HOTEN,NGSINH,GT,EMAIL,SDT,DIACHI,TAIKHOAN,MATKHAU")] BSUSER bsuser)
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include="MAUSR,HOTEN,NGSINH,GT,EMAIL,SDT,DIACHI,TAIKHOAN,MATKHAU,ISDELETE,USRANK")] BSUSER bsuser,HttpPostedFileBase FileUpload,string avatarOld)
         {
+           
             if (ModelState.IsValid)
             {
+                if (FileUpload!=null)
+                {
+                    string fileName = Path.GetFileName(FileUpload.FileName);
+                    bsuser.avatar = fileName;
+                    string path = Path.Combine(Server.MapPath("~/Avatar"), fileName);                   
+                        FileUpload.SaveAs(path);
+                        bsuser.avatar = fileName;
+                }
+                else
+                {
+                    bsuser.avatar = avatarOld;
+                }
                 db.Entry(bsuser).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -110,7 +139,8 @@ namespace BookStore.Controllers.Admin
         public ActionResult DeleteConfirmed(int id)
         {
             BSUSER bsuser = db.BSUSERs.Find(id);
-            db.BSUSERs.Remove(bsuser);
+            bsuser.ISDELETE = true;
+            //db.BSUSERs.Remove(bsuser);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

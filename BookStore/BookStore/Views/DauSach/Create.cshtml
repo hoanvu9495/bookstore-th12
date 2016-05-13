@@ -12,22 +12,22 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>BSSACH</h4>
+        <h4>Thêm sách mới</h4>
         <hr />
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MALOAI, "MALOAI", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MALOAI, "Thể loại", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("MALOAI", String.Empty)
+                @Html.DropDownList("Thể loại", String.Empty)
                 @Html.ValidationMessageFor(model => model.MALOAI)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MANXB, "MANXB", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MANXB, "Nhà xuất bản", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("MANXB", String.Empty)
+                @Html.DropDownList("Nhà xuất bản", String.Empty)
                 @Html.ValidationMessageFor(model => model.MANXB)
             </div>
         </div>
@@ -41,9 +41,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MATG, "MATG", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MATG, "Tác giả", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("MATG", String.Empty)
+                @Html.DropDownList("Tác giả", String.Empty)
                 @Html.ValidationMessageFor(model => model.MATG)
             </div>
         </div>
@@ -67,7 +67,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NGXB, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NGXB)
+                @*@Html.EditorFor(model => model.NGXB)*@
+                <input type="date" name="NGXB"/>
                 @Html.ValidationMessageFor(model => model.NGXB)
             </div>
         </div>
