@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BookStore.Entities.BSKHUYENMAI>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TENKM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGBATDAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGKETTHUC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MOTA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISDELETE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENKM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGBATDAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGKETTHUC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MOTA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISDELETE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MAKM }) |
+            @*@Html.ActionLink("Details", "Index","ChiTietKhuyenMai", new { id=item.MAKM })*@ 
+            <a href="~/ChiTietKhuyenMai/Index?id=@item.MAKM">Chi tiết</a>|
+            @Html.ActionLink("Delete", "Delete", new { id=item.MAKM })|
+            <a href="~/ChiTietKhuyenMai/Create">Thêm Sách</a>
+        </td>
+    </tr>
+}
+
+</table>

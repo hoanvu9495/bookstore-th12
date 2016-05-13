@@ -1,0 +1,51 @@
+﻿@model BookStore.Entities.BSCTKM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BSCTKM</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BSKHUYENMAI.TENKM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BSKHUYENMAI.TENKM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BSSACH.TENSACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BSSACH.TENSACH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTKM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTKM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISDELETE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISDELETE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

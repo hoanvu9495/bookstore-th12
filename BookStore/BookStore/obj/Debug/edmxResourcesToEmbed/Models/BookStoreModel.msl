@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BOOKSTOREModelStoreContainer" CdmEntityContainer="BOOKSTOREEntities">
+    <EntitySetMapping Name="BSDONHANGs">
+      <EntityTypeMapping TypeName="BOOKSTOREModel.BSDONHANG">
+        <MappingFragment StoreEntitySet="BSDONHANG">
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
+          <ScalarProperty Name="NGDAT" ColumnName="NGDAT" />
+          <ScalarProperty Name="NGGIAO" ColumnName="NGGIAO" />
+          <ScalarProperty Name="DATHANHTOAN" ColumnName="DATHANHTOAN" />
+          <ScalarProperty Name="TINHTRANGGH" ColumnName="TINHTRANGGH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BSKHUYENMAIs">
+      <EntityTypeMapping TypeName="BOOKSTOREModel.BSKHUYENMAI">
+        <MappingFragment StoreEntitySet="BSKHUYENMAI">
+          <ScalarProperty Name="MAKM" ColumnName="MAKM" />
+          <ScalarProperty Name="NGBATDAU" ColumnName="NGBATDAU" />
+          <ScalarProperty Name="NGKETTHUC" ColumnName="NGKETTHUC" />
+          <ScalarProperty Name="MASACH" ColumnName="MASACH" />
+          <ScalarProperty Name="KM" ColumnName="KM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BSLOAIs">
+      <EntityTypeMapping TypeName="BOOKSTOREModel.BSLOAI">
+        <MappingFragment StoreEntitySet="BSLOAI">
+          <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
+          <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+          <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BSNXBs">
+      <EntityTypeMapping TypeName="BOOKSTOREModel.BSNXB">
+        <MappingFragment StoreEntitySet="BSNXB">
+          <ScalarProperty Name="MANXB" ColumnName="MANXB" />
+          <ScalarProperty Name="TENNXB" ColumnName="TENNXB" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BSSACHes">
+      <EntityTypeMapping TypeName="BOOKSTOREModel.BSSACH">
+        <MappingFragment StoreEntitySet="BSSACH">
+          <ScalarProperty Name="MASACH" ColumnName="MASACH" />
+          <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
+          <ScalarProperty Name="MANXB" ColumnName="MANXB" />
+          <ScalarProperty Name="TENSACH" ColumnName="TENSACH" />
+          <ScalarProperty Name="MATG" ColumnName="MATG" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="TRONGLUONG" ColumnName="TRONGLUONG" />
+          <ScalarProperty Name="NGXB" ColumnName="NGXB" />
+          <ScalarProperty Name="GIABIA" ColumnName="GIABIA" />
+          <ScalarProperty Name="SOTRANG" ColumnName="SOTRANG" />
+          <ScalarProperty Name="KHO" ColumnName="KHO" />
+          <ScalarProperty Name="BIA" ColumnName="BIA" />
+          <ScalarProperty Name="GIOITHIEU" ColumnName="GIOITHIEU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BSTACGIAs">
+      <EntityTypeMapping TypeName="BOOKSTOREModel.BSTACGIA">
+        <MappingFragment StoreEntitySet="BSTACGIA">
+          <ScalarProperty Name="MATG" ColumnName="MATG" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="GT" ColumnName="GT" />
+          <ScalarProperty Name="GIOITHIEU" ColumnName="GIOITHIEU" />
+          <ScalarProperty Name="BUTDANH" ColumnName="BUTDANH" />
+          <ScalarProperty Name="NGSINH" ColumnName="NGSINH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BSUSERs">
+      <EntityTypeMapping TypeName="BOOKSTOREModel.BSUSER">
+        <MappingFragment StoreEntitySet="BSUSER">
+          <ScalarProperty Name="MAUSR" ColumnName="MAUSR" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="NGSINH" ColumnName="NGSINH" />
+          <ScalarProperty Name="GT" ColumnName="GT" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+          <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BSCTDHs">
+      <EntityTypeMapping TypeName="BOOKSTOREModel.BSCTDH">
+        <MappingFragment StoreEntitySet="BSCTDH">
+          <ScalarProperty Name="MADH" ColumnName="MADH" />
+          <ScalarProperty Name="MASACH" ColumnName="MASACH" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="KM" ColumnName="KM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BSSOTRUONGTG" TypeName="BOOKSTOREModel.BSSOTRUONGTG" StoreEntitySet="BSSOTRUONGTG">
+      <EndProperty Name="BSLOAI">
+        <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
+      </EndProperty>
+      <EndProperty Name="BSTACGIA">
+        <ScalarProperty Name="MATG" ColumnName="MATG" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

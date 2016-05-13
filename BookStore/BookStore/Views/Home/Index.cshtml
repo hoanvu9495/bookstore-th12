@@ -1,0 +1,45 @@
+﻿@using BookStore.Models;
+@using BookStore.DAO;
+@using BookStore.Code;
+@using PagedList.Mvc;
+
+@model PagedList.PagedList<BookStore.Entities.BSSACH>
+@{
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    ViewBag.Title = "Trang chủ";
+}
+@{
+    foreach (var item in Model)
+    {
+        <div class="item">
+            <div class="anhBia">
+                <img src="~/HinhAnhSp/@item.BIA" />
+            </div>
+
+            <p class="tenSach">@item.TENSACH</p>
+            <div class="listItemDetail">
+
+                <p class="tacGia">@item.MATG</p>
+                <p class="giamGia">-30%</p>
+                <p class="gia">@item.GIABIA VNĐ</p>
+                <del>@item.GIABIA VNĐ</del>
+
+
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaSach = item.MASACH, @strURL = Request.Url.ToString() }))
+                {
+                    if (SessionHelper.GetSession() != null)
+                    {
+                        <button type="submit" class="btn btn-danger">Thêm vào giỏ hàng</button>
+                    }
+                }
+
+            </div>
+        </div>
+
+    }
+}
+<div class="pageList">
+    @* Tạo liên kết các trang *@
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>

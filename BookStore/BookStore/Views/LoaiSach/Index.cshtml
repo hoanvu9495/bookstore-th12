@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BookStore.Entities.BSLOAI>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h4 class="title">Danh sách thể loại</h4>
+<table class="table table-bordered table-hover" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TENLOAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GHICHU)
+        </th>
+        <th style="width:100px">Chức năng</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENLOAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GHICHU)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.MALOAI }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MALOAI }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MALOAI })*@
+            <a href="Edit?id=@item.MALOAI">
+                <img src="~/HinhAnh/edit.png" />
+            </a>
+            <a href="Details?id=@item.MALOAI">
+                <img src="~/HinhAnh/detail.png" />
+            </a>
+            <a href="Delete?id=@item.MALOAI">
+                <img src="~/HinhAnh/delete.png" />
+            </a>
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class="btn btn-primary btn-sm"})
+</p>

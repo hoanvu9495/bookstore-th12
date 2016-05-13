@@ -1,0 +1,69 @@
+﻿@model BookStore.Entities.BSTACGIA
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>BSTACGIA</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HOTEN, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HOTEN)
+                @Html.ValidationMessageFor(model => model.HOTEN)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GT, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GT)
+                @Html.ValidationMessageFor(model => model.GT)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GIOITHIEU, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GIOITHIEU)
+                @Html.ValidationMessageFor(model => model.GIOITHIEU)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BUTDANH, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BUTDANH)
+                @Html.ValidationMessageFor(model => model.BUTDANH)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NGSINH, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NGSINH)
+                @Html.ValidationMessageFor(model => model.NGSINH)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

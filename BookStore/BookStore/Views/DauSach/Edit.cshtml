@@ -1,0 +1,128 @@
+﻿@model BookStore.Entities.BSSACH
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "DauSach", FormMethod.Post, new { @enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>BSSACH</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MASACH)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MALOAI, "MALOAI", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MALOAI", String.Empty)
+                @Html.ValidationMessageFor(model => model.MALOAI)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MANXB, "MANXB", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MANXB", String.Empty)
+                @Html.ValidationMessageFor(model => model.MANXB)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TENSACH, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TENSACH)
+                @Html.ValidationMessageFor(model => model.TENSACH)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MATG, "MATG", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MATG", String.Empty)
+                @Html.ValidationMessageFor(model => model.MATG)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SOLUONG, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SOLUONG)
+                @Html.ValidationMessageFor(model => model.SOLUONG)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TRONGLUONG, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TRONGLUONG)
+                @Html.ValidationMessageFor(model => model.TRONGLUONG)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NGXB, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.NGXB)
+                @Html.ValidationMessageFor(model => model.NGXB)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GIABIA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GIABIA)
+                @Html.ValidationMessageFor(model => model.GIABIA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SOTRANG, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SOTRANG)
+                @Html.ValidationMessageFor(model => model.SOTRANG)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KHO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KHO)
+                @Html.ValidationMessageFor(model => model.KHO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BIA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @* Tên của input phai trùng với tham số bên controller *@
+                <input type="file" name="FileUpload"/>
+                @*@Html.EditorFor(model => model.BIA)*@
+                @Html.ValidationMessageFor(model => model.BIA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GIOITHIEU, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GIOITHIEU)
+                @Html.ValidationMessageFor(model => model.GIOITHIEU)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

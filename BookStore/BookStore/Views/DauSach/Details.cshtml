@@ -1,0 +1,115 @@
+﻿@model BookStore.Entities.BSSACH
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BSSACH</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BSLOAI.TENLOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BSLOAI.TENLOAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BSNXB.TENNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BSNXB.TENNXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BSTACGIA.HOTEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BSTACGIA.HOTEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TENSACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENSACH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOLUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOLUONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRONGLUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRONGLUONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIABIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIABIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOTRANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOTRANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIOITHIEU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOITHIEU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MASACH }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

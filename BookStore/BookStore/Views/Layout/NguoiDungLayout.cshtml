@@ -1,0 +1,204 @@
+﻿@using BookStore.Models;
+@using BookStore.DAO;
+@using BookStore.Code;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/Content/js/jquery.js"></script>
+    <link href="~/Content/css/NguoiDungCssLayout/mystyle.css" rel="stylesheet" />
+    <link href="~/Content/css/NguoiDungCssLayout/ChiTietSp.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/js/bootstrap.min.js"></script>
+
+    <!--Chèn nivosilder-->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/NivoSlider/jquery.nivo.slider.js"></script>
+    <script src="~/Content/NivoSlider/jquery.nivo.slider.pack.js"></script>
+    <link href="~/Content/NivoSlider/nivo-slider.css" rel="stylesheet" />
+    <link href="~/Content/NivoSlider/bar/default.css" rel="stylesheet" />
+    <script src="~/Scripts/dangNhap.js"></script>
+    <script>
+
+    </script>
+
+</head>
+<body>
+    <!--menuTop-->
+    <nav id="MenuTop" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="../Home/Index">
+                    <img id="logo" src="~/Content/css/NguoiDungCssLayout/logoWhite.png" />
+                </a>
+            </div>
+
+            <ul id="dangNhapDangKy" class="nav navbar-nav navbar-right">
+                @{
+                    if (SessionHelper.GetSession() != null)
+                    {
+                        <li><a><strong>@SessionHelper.GetSession().userName</strong></a></li>
+                        if (SessionHelper.GetSession().userRank != 0)
+                        {
+                            <li id="adminBtn"><a href="~/Admin/Index">Admin</a></li>
+                        }
+                        <li id="gioHangBtn" class="nav-toggle">
+                            @Html.Action("gioHangPartial", "GioHang")
+                        </li>
+                        <li>
+                            <a href="~/Home/Logout">Logout</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li id="dangKyBtn"><a href="~/DangKy/Index"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+                        <li id="dangNhapBtn"><a href="~/Login/Index"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+                    }
+                }
+       
+
+            </ul>
+        </div>
+    </nav>
+    <!--End menuTOp-->
+
+    <div id="FrmMain">
+        <div id="navLeft">
+            <div id="navLeftTop">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="#"><img src="~/icon/facebook.png"></a></li>
+                    <li><a href="#"><img src="~/icon/googleplus.png"></a></li>
+                    <li><a href="#"><img src="~/icon/twitter.png"></a></li>
+                    <li><a href="#"><img src="~/icon/linkedin.png"></a></li>
+                </ul>
+            </div>
+            <div id="navLeftMain">
+                <div id="listDanhMuc" class="list-group">
+                    <a href="#"><p class="title"><span class="glyphicon glyphicon-list"> </span> Danh Mục</p></a>
+                    <a class="list-group-item" href="#"><span class="glyphicon glyphicon-th-large"> </span> Sách Công Nghệ Thông Tin</a>
+                    <a class="list-group-item" href="#"><span class="glyphicon glyphicon-th-large"> </span> Sách Kinh Tế</a>
+                    <a class="list-group-item" href="#"><span class="glyphicon glyphicon-th-large"> </span> Sách Văn Học - Trong Nước</a>
+                    <a class="list-group-item" href="#"><span class="glyphicon glyphicon-th-large"> </span> Sách Văn học - Nước Ngoài</a>
+                    <a class="list-group-item" href="#"><span class="glyphicon glyphicon-th-large"> </span> Sách Thiếu Nhi</a>
+                    <a class="list-group-item" href="#"><span class="glyphicon glyphicon-th-large"> </span> Sách Đời Sống - Thường Thức</a>
+                    <a class="list-group-item" href="#"><span class="glyphicon glyphicon-th-large"> </span> Sách Anh Văn</a>
+                    <a class="list-group-item" href="#"><span class="glyphicon glyphicon-th-large"> </span> Sách Thiếu Nhi</a>
+                </div>
+            </div>
+            <div id="contact">
+                <span id="icon-phone"><img src="~/icon/homephone.png"></span>
+                <span id="contactDetail">
+                    <div><p>0969996278</p></div>
+                    <div>
+                        <p>Call us Monday-Saturday 8h30 am - 6:00 pm</p>
+                    </div>
+                </span>
+            </div>
+            <div id="listHot">
+                @Html.Partial("~/Views/Sach/SachHotPartial.cshtml", BookDAO.listHot(4));
+            </div>
+        </div>
+        <div id="navMain">
+            <div id="tip" class="text-danger">
+                <strong>Warning!</strong> Trang Web này bán sách rất rẻ. @Session["UserName"];
+            </div>
+            <div>
+                <div id="banner">
+                    <!--NivoSlider-->
+                    <div id="wrapper">
+                        <div class="slider-wrapper theme-default">
+                            <div id="slider" class="nivoSlider">
+                                <img src="~/HinhAnh/toystory.jpg" data-thumb="~/HinhAnh/toystory.jpg" alt="" />
+                                <a href="http://dev7studios.com">
+                                    <img src="~/HinhAnh/up.jpg" data-thumb="~/HinhAnh/up.jpg" alt="" title="This is an example of a caption" />
+                                </a>
+                                <img src="~/HinhAnh/walle.jpg" data-thumb="~/HinhAnh/walle.jpg" alt="" data-transition="slideInLeft" />
+                                <img src="~/HinhAnh/nemo.jpg" data-thumb="~/HinhAnh/nemo.jpg" alt="" title="#htmlcaption" />
+                            </div>
+                            <div id="htmlcaption" class="nivo-html-caption"> <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div id="mainDetail">
+                @RenderBody()
+            </div>
+        </div>
+        <div id="navRight">
+            <div id="timKiem">
+                <form>
+                    <input type="text" class="form-control" placeholder="...Tìm kiếm" name="search" />
+                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </form>
+
+            </div>
+            <div id="listSachMoi">
+                <div class="title">
+                    <span>Sách mới cập nhật</span>
+                </div>
+                @Html.Partial("~/Views/Sach/listSachMoi.cshtml", BookDAO.listSachMoi(4));
+                @*Sách mới renderPage()*@
+            </div>
+            <div  class="list-group">
+                <a href="#"><p class="title"><span class="glyphicon glyphicon-list"> </span> Nhà xuất bản </p></a>
+                @Html.Partial("~/Views/NXB/NhaXuatBanPartial.cshtml",NhaXuatBanDAO.ListNXB())
+            </div>
+
+        </div>
+
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="footer" class="col-lg-12 col-md-12">
+                @Html.Partial("~/Views/Home/FooterPartial.cshtml");
+            </div>
+        </div>
+
+    </div>
+
+
+    @*Script chay nivo slider*@
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider();
+        });
+    </script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                effect: 'random',
+                slices: 15,
+                boxCols: 8,
+                boxRows: 4,
+                animSpeed: 500,
+                pauseTime: 3000,
+                startSlide: 0,
+                directionNav: true,
+                controlNav: true,
+                controlNavThumbs: false,
+                pauseOnHover: true,
+                manualAdvance: false,
+                prevText: 'Prev',
+                nextText: 'Next',
+                randomStart: false,
+                beforeChange: function () { },
+                afterChange: function () { },
+                slideshowEnd: function () { },
+                lastSlide: function () { },
+                afterLoad: function () { }
+            });
+        });
+    </script>
+</body>
+</html>

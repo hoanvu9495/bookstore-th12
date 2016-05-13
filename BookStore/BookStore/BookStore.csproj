@@ -1,0 +1,766 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F318E69F-DA3C-4D7D-80DF-6BAF1B6B694F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookStore</RootNamespace>
+    <AssemblyName>BookStore</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Code\BookCode.cs" />
+    <Compile Include="Code\GioHang.cs" />
+    <Compile Include="Code\SessionHelper.cs" />
+    <Compile Include="Code\UserSession.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\Admin\ChiTietDonHangController.cs" />
+    <Compile Include="Controllers\Admin\ChiTietKhuyenMaiController.cs" />
+    <Compile Include="Controllers\Admin\DauSachController.cs" />
+    <Compile Include="Controllers\Admin\KhuyenMaiController.cs" />
+    <Compile Include="Controllers\Admin\UserController.cs" />
+    <Compile Include="Controllers\DangKyController.cs" />
+    <Compile Include="Controllers\Admin\GioHangController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Admin\LoaiSachController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\Admin\NXBController.cs" />
+    <Compile Include="Controllers\SachController.cs" />
+    <Compile Include="Controllers\Admin\TacGiaController.cs" />
+    <Compile Include="DAO\Account.cs" />
+    <Compile Include="DAO\AdminDAO.cs" />
+    <Compile Include="DAO\BookDAO.cs" />
+    <Compile Include="DAO\NhaXuatBanDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="Entities\BSCTDH.cs" />
+    <Compile Include="Entities\BSCTKM.cs" />
+    <Compile Include="Entities\BSDONHANG.cs" />
+    <Compile Include="Entities\BSKHUYENMAI.cs" />
+    <Compile Include="Entities\BSLOAI.cs" />
+    <Compile Include="Entities\BSNXB.cs" />
+    <Compile Include="Entities\BSSACH.cs" />
+    <Compile Include="Entities\BSTACGIA.cs" />
+    <Compile Include="Entities\BSTACGIASACH.cs" />
+    <Compile Include="Entities\BSUSER.cs" />
+    <Compile Include="Entities\DBContent.cs" />
+    <Compile Include="Entities\Metadata\BSCTHD.Metadata.cs" />
+    <Compile Include="Entities\Metadata\BSCTKM.Metadata.cs" />
+    <Compile Include="Entities\Metadata\BSDONHANG.Metadata.cs" />
+    <Compile Include="Entities\Metadata\BSKHUYENMAI.Metadata.cs" />
+    <Compile Include="Entities\Metadata\BSLOAI.Metadata.cs" />
+    <Compile Include="Entities\Metadata\BSNXB.Metadata.cs" />
+    <Compile Include="Entities\Metadata\BSSACH.Metadata.cs" />
+    <Compile Include="Entities\Metadata\BSTACGIA.Metadata.cs" />
+    <Compile Include="Entities\Metadata\BSUSER.Metadata.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\AdminCssLayout\CSS\AdminLayout.css" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\css\font-awesome-ie7.css" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\css\font-awesome.css" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\css\font-awesome.min.css" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\font\fontawesome-webfont.svg" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\css\prettify.css" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\css\pygments.css" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\ico\favicon.ico" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\img\contribution-sample.png" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\img\fort_awesome.jpg" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\img\glyphicons-halflings.png" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\js\backbone.min.js" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\js\bootstrap-2.3.1.min.js" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\js\bootstrap-222.min.js" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\js\jquery-1.7.1.min.js" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\js\prettify.min.js" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\js\site.js" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\js\underscore.min.js" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\js\ZeroClipboard-1.1.7.min.js" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\js\ZeroClipboard-1.1.7.swf" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\cheatsheet.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\community.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\design.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\examples.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\get-started.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\icons.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\index.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\license.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\test.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\whats-new.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\ads\carbon-dark-vertical.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\ads\carbon-light-horizontal.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\ads\carbon-light-vertical.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\brand-license.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\cheatsheet.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\community.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\community\getting-support.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\community\project-milestones.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\community\reporting-bugs.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\community\requesting-new-icons.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\community\submitting-pull-requests.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\animated-spinner.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\bordered-pulled.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\bulleted-lists.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\button-dropdowns.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\button-groups.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\buttons.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\custom.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\form-inputs.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\inline-icons.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\larger-icons.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\navigation.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\new.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\rotated-flipped.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\examples\stacked.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\footer.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\get-started.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\icons.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\icons\brand.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\icons\currency.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\icons\directional.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\icons\medical.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\icons\new.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\icons\text-editor.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\icons\video-player.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\icons\web-application.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\jumbotron-slider.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\jumbotron.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\license.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\navbar.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\stripe-ad.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\stripe-social.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\tell-me-thanks.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\tests\rotated-flipped-inside-anchor.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\tests\rotated-flipped-inside-btn.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\tests\rotated-flipped.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\tests\stacked-inside-anchor.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\tests\stacked.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\thanks-to.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\whats-new.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\why.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_layouts\base.html" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_layouts\icon.html" />
+    <Content Include="Content\css\AdminCssLayout\img\1.png" />
+    <Content Include="Content\css\AdminCssLayout\img\1G.jpg" />
+    <Content Include="Content\css\AdminCssLayout\img\1G_B.jpg" />
+    <Content Include="Content\css\AdminCssLayout\img\2.png" />
+    <Content Include="Content\css\AdminCssLayout\img\2G.jpg" />
+    <Content Include="Content\css\AdminCssLayout\img\2G_B.jpg" />
+    <Content Include="Content\css\AdminCssLayout\img\3.png" />
+    <Content Include="Content\css\AdminCssLayout\img\4.png" />
+    <Content Include="Content\css\AdminCssLayout\img\bg.png" />
+    <Content Include="Content\css\AdminCssLayout\img\cp.png" />
+    <Content Include="Content\css\AdminCssLayout\img\demoBig.jpg" />
+    <Content Include="Content\css\AdminCssLayout\img\demoBig2.jpg" />
+    <Content Include="Content\css\AdminCssLayout\img\demoImage.jpg" />
+    <Content Include="Content\css\AdminCssLayout\img\demoImage2.jpg" />
+    <Content Include="Content\css\AdminCssLayout\img\demoUpload.jpg" />
+    <Content Include="Content\css\AdminCssLayout\img\logo.png" />
+    <Content Include="Content\css\AdminCssLayout\img\moreNoti.jpg" />
+    <Content Include="Content\css\AdminCssLayout\img\moreNoti_old.jpg" />
+    <Content Include="Content\css\AdminCssLayout\img\px_by_Gre3g.png" />
+    <Content Include="Content\css\AdminCssLayout\img\user.gif" />
+    <Content Include="Content\css\AdminCssLayout\img\user_old.gif" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\Login\style.css" />
+    <Content Include="Content\css\NguoiDungCssLayout\ChiTietSp.css" />
+    <Content Include="Content\css\NguoiDungCssLayout\logoWhite.png" />
+    <Content Include="Content\css\NguoiDungCssLayout\mystyle.css" />
+    <Content Include="Content\css\NguoiDungCssLayout\ThongTinChiTietSP.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\js\npm.js" />
+    <Content Include="Content\NivoSlider\bar\arrows.png" />
+    <Content Include="Content\NivoSlider\bar\bullets.png" />
+    <Content Include="Content\NivoSlider\bar\default.css" />
+    <Content Include="Content\NivoSlider\bar\loading.gif" />
+    <Content Include="Content\NivoSlider\jquery.nivo.slider.js" />
+    <Content Include="Content\NivoSlider\jquery.nivo.slider.pack.js" />
+    <Content Include="Content\NivoSlider\nivo-slider.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="HinhAnhSp\00001.jpg" />
+    <Content Include="HinhAnhSp\00002.jpg" />
+    <Content Include="HinhAnhSp\00003.jpg" />
+    <Content Include="HinhAnhSp\00004.jpg" />
+    <Content Include="HinhAnh\delete.png" />
+    <Content Include="HinhAnh\detail.png" />
+    <Content Include="HinhAnh\edit.png" />
+    <Content Include="HinhAnh\nemo.jpg" />
+    <Content Include="HinhAnh\toystory.jpg" />
+    <Content Include="HinhAnh\up.jpg" />
+    <Content Include="HinhAnh\walle.jpg" />
+    <Content Include="icon\facebook.png" />
+    <Content Include="icon\googleplus.png" />
+    <Content Include="icon\homephone.png" />
+    <Content Include="icon\linkedin.png" />
+    <Content Include="icon\twitter.png" />
+    <Content Include="img\bg.jpg" />
+    <Content Include="img\bg_blue.jpg" />
+    <Content Include="img\bg_brown.jpg" />
+    <Content Include="img\bg_light_green.jpg" />
+    <Content Include="img\bg_menu_blue.jpg" />
+    <Content Include="img\bg_menu_green.jpg" />
+    <Content Include="img\bg_menu_mix.jpg" />
+    <Content Include="img\bg_menu_red.jpg" />
+    <Content Include="img\bg_mix.jpg" />
+    <Content Include="img\form_blue.gif" />
+    <Content Include="img\form_brown.gif" />
+    <Content Include="img\form_green.gif" />
+    <Content Include="img\form_mix.gif" />
+    <Content Include="img\form_red.gif" />
+    <Content Include="img\graph.jpg" />
+    <Content Include="img\graph2.jpg" />
+    <Content Include="img\icons\add.png" />
+    <Content Include="img\icons\application_add.png" />
+    <Content Include="img\icons\arrow_down.png" />
+    <Content Include="img\icons\arrow_down_mini.gif" />
+    <Content Include="img\icons\arrow_left.gif" />
+    <Content Include="img\icons\arrow_right.gif" />
+    <Content Include="img\icons\brick.png" />
+    <Content Include="img\icons\bricks.png" />
+    <Content Include="img\icons\bricks_gear.png" />
+    <Content Include="img\icons\brick_edit.png" />
+    <Content Include="img\icons\car.png" />
+    <Content Include="img\icons\cart.png" />
+    <Content Include="img\icons\cart_add.png" />
+    <Content Include="img\icons\cog.png" />
+    <Content Include="img\icons\coins.png" />
+    <Content Include="img\icons\color_swatch.png" />
+    <Content Include="img\icons\expand.jpg" />
+    <Content Include="img\icons\feed.png" />
+    <Content Include="img\icons\folder.png" />
+    <Content Include="img\icons\folder_page.png" />
+    <Content Include="img\icons\folder_page_add.png" />
+    <Content Include="img\icons\folder_table.png" />
+    <Content Include="img\icons\group.png" />
+    <Content Include="img\icons\house.png" />
+    <Content Include="img\icons\magnifier.png" />
+    <Content Include="img\icons\page_add.png" />
+    <Content Include="img\icons\page_gear.png" />
+    <Content Include="img\icons\page_white_delete.png" />
+    <Content Include="img\icons\page_white_edit.png" />
+    <Content Include="img\icons\page_white_link.png" />
+    <Content Include="img\icons\page_white_text_width.png" />
+    <Content Include="img\icons\report.png" />
+    <Content Include="img\icons\report_link.png" />
+    <Content Include="img\icons\rss.png" />
+    <Content Include="img\icons\user.png" />
+    <Content Include="img\icons\user_add.png" />
+    <Content Include="img\icons\user_delete.png" />
+    <Content Include="img\icons\user_edit.png" />
+    <Content Include="img\icons\world.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\css\bootstrap-theme.css.map" />
+    <Content Include="Content\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap.min.css.map" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="img\icons\Thumbs.db" />
+    <Content Include="img\Thumbs.db" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\font\fontawesome-webfont.eot" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\font\fontawesome-webfont.woff" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\font\FontAwesome.otf" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\less\bootstrap.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\less\core.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\less\extras.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\less\font-awesome-ie7.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\less\font-awesome.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\less\icons.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\less\mixins.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\less\path.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\less\variables.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\scss\font-awesome-ie7.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\scss\font-awesome.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\scss\_bootstrap.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\scss\_core.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\scss\_extras.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\scss\_icons.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\scss\_mixins.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\scss\_path.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\scss\_variables.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\font\FontAwesome.otf" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\less\bootstrap.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\less\core.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\less\extras.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\less\font-awesome-ie7.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\less\icons.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\less\mixins.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\less\path.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\less\variables.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\scss\font-awesome-ie7.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\scss\_bootstrap.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\scss\_core.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\scss\_extras.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\scss\_path.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\img\icon-flag.pdf" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\accordion.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\alerts.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\bootstrap.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\breadcrumbs.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\button-groups.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\buttons.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\carousel.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\close.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\code.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\component-animations.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\dropdowns.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\forms.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\grid.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\hero-unit.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\labels-badges.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\layouts.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\media.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\mixins.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\modals.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\navbar.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\navs.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\pager.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\pagination.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\popovers.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\progress-bars.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\reset.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\responsive-1200px-min.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\responsive-767px-max.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\responsive-768px-979px.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\responsive-navbar.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\responsive-utilities.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\responsive.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\scaffolding.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\sprites.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\tables.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\thumbnails.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\tooltip.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\type.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\utilities.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\variables.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\bootstrap-2.3.2\wells.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\lazy.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\mixins.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\responsive-1200px-min.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\responsive-767px-max.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\responsive-768px-979px.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\responsive-navbar.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\responsive.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\site.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\sticky-footer.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\assets\less\variables.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\icons.yml" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_includes\license-code.less" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_plugins\icon_page_generator.rb" />
+    <Content Include="Content\css\AdminCssLayout\CSS\Font-Awesome\src\_plugins\site.rb" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\dangNhap.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="tinymce\jquery.tinymce.min.js" />
+    <Content Include="tinymce\license.txt" />
+    <Content Include="tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="tinymce\plugins\code\plugin.min.js" />
+    <Content Include="tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="tinymce\plugins\example\dialog.html" />
+    <Content Include="tinymce\plugins\example\plugin.min.js" />
+    <Content Include="tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="tinymce\plugins\image\plugin.min.js" />
+    <Content Include="tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="tinymce\plugins\link\plugin.min.js" />
+    <Content Include="tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="tinymce\plugins\media\plugin.min.js" />
+    <Content Include="tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="tinymce\plugins\print\plugin.min.js" />
+    <Content Include="tinymce\plugins\save\plugin.min.js" />
+    <Content Include="tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="tinymce\plugins\table\plugin.min.js" />
+    <Content Include="tinymce\plugins\template\plugin.min.js" />
+    <Content Include="tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="tinymce\skins\lightgray\content.min.css" />
+    <Content Include="tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="tinymce\themes\modern\theme.min.js" />
+    <Content Include="tinymce\tinymce.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Layout\NguoiDungLayout.cshtml" />
+    <Content Include="Views\DangKy\Index.cshtml" />
+    <Content Include="Views\Home\FooterPartial.cshtml" />
+    <Content Include="Views\Sach\SachHotPartial.cshtml" />
+    <Content Include="Views\Layout\_LayoutPage1.cshtml" />
+    <Content Include="Views\DangKy\reg.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Layout\AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\NXB\Create.cshtml" />
+    <Content Include="Views\NXB\Delete.cshtml" />
+    <Content Include="Views\NXB\Details.cshtml" />
+    <Content Include="Views\NXB\Edit.cshtml" />
+    <Content Include="Views\NXB\Index.cshtml" />
+    <Content Include="Views\TacGia\Create.cshtml" />
+    <Content Include="Views\TacGia\Delete.cshtml" />
+    <Content Include="Views\TacGia\Details.cshtml" />
+    <Content Include="Views\TacGia\Edit.cshtml" />
+    <Content Include="Views\TacGia\Index.cshtml" />
+    <Content Include="Views\GioHang\Create.cshtml" />
+    <Content Include="Views\GioHang\Delete.cshtml" />
+    <Content Include="Views\GioHang\Details.cshtml" />
+    <Content Include="Views\GioHang\Edit.cshtml" />
+    <Content Include="Views\GioHang\Index.cshtml" />
+    <Content Include="Views\LoaiSach\Create.cshtml" />
+    <Content Include="Views\LoaiSach\Delete.cshtml" />
+    <Content Include="Views\LoaiSach\Details.cshtml" />
+    <Content Include="Views\LoaiSach\Edit.cshtml" />
+    <Content Include="Views\LoaiSach\Index.cshtml" />
+    <Content Include="Views\DauSach\Create.cshtml" />
+    <Content Include="Views\DauSach\Delete.cshtml" />
+    <Content Include="Views\DauSach\Details.cshtml" />
+    <Content Include="Views\DauSach\Edit.cshtml" />
+    <Content Include="Views\DauSach\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\Sach\xemChiTiet.cshtml" />
+    <Content Include="Views\Sach\listSachMoi.cshtml" />
+    <Content Include="Views\GioHang\gioHangPartial.cshtml" />
+    <Content Include="Views\NXB\NhaXuatBanPartial.cshtml" />
+    <Content Include="Views\Admin\ThanhVienUpdatePartial.cshtml" />
+    <Content Include="Views\Admin\DonHangUpdatePartial.cshtml" />
+    <Content Include="Views\Admin\DauSachUpdatePartial.cshtml" />
+    <Content Include="Views\Admin\NXBUpdatePartial.cshtml" />
+    <Content Include="Views\Admin\TacGiaUpdatePartial.cshtml" />
+    <Content Include="Views\Admin\KhuyenMaiUpdatePartial.cshtml" />
+    <Content Include="Views\ChiTietDonHang\Create.cshtml" />
+    <Content Include="Views\ChiTietDonHang\Delete.cshtml" />
+    <Content Include="Views\ChiTietDonHang\Details.cshtml" />
+    <Content Include="Views\ChiTietDonHang\Edit.cshtml" />
+    <Content Include="Views\ChiTietDonHang\Index.cshtml" />
+    <Content Include="Views\ChiTietDonHang\CTDHAdmin.cshtml" />
+    <Content Include="Views\GioHang\DonHangDaDatPartial.cshtml" />
+    <Content Include="tinymce\langs\readme.md" />
+    <Content Include="tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Views\KhuyenMai\Create.cshtml" />
+    <Content Include="Views\KhuyenMai\Delete.cshtml" />
+    <Content Include="Views\KhuyenMai\Details.cshtml" />
+    <Content Include="Views\KhuyenMai\Edit.cshtml" />
+    <Content Include="Views\KhuyenMai\Index.cshtml" />
+    <Content Include="Views\ChiTietKhuyenMai\Create.cshtml" />
+    <Content Include="Views\ChiTietKhuyenMai\Delete.cshtml" />
+    <Content Include="Views\ChiTietKhuyenMai\Details.cshtml" />
+    <Content Include="Views\ChiTietKhuyenMai\Edit.cshtml" />
+    <Content Include="Views\ChiTietKhuyenMai\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Scripts\LoginJS\" />
+    <Folder Include="Views\LogOut\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56036</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56036/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

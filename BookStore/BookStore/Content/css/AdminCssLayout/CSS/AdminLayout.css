@@ -1,0 +1,51 @@
+﻿body {
+}
+
+#left{
+    width:20%;
+    float: left;
+    display: inline;
+    padding: 5px;
+}
+#top{
+
+}
+#top a{
+    color: white;
+}
+#content{
+    width: 80%;
+    display: block;
+    float: left;
+    padding:5px;
+}
+#footer{
+    display: block;
+    clear:both;
+    text-align: center;
+}
+
+.thongTinAdmin{
+     border: 1px gray solid;
+    border-radius: 5px;
+    padding: 5px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.thongTinAdmin .avatar{
+    display: inline-block;
+    margin: 5px;
+    vertical-align:middle;
+
+}
+.thongTinAdmin .media-body{
+    display: inline-block;
+    margin: 5px;
+    vertical-align:middle;
+}
+.listMenu{
+    clear: both;
+}

@@ -1,0 +1,23 @@
+﻿
+@model IEnumerable<BookStore.Entities.BSSACH>
+<div class="title">
+    <p>Sách Hot</p>
+</div>
+@{ int i = 1;}
+@{
+    foreach (var item in Model)
+    {
+        <div class="listHotItem">
+            <p class="rankItem">@i</p>
+            <img class="listHotImg" src="~/HinhAnhSp/@item.BIA" alt="Sach" />
+            <div class="listHotDetail">
+                <a class="tenSach" href="~/Sach/xemChiTiet?maSach=@item.MASACH">@item.TENSACH</a>
+                <p class="tacGia">@item.MATG</p>
+                <p class="giamGia">Giảm giá</p>
+                <p class="gia">@item.GIABIA VNĐ</p>
+            </div>
+        </div>
+        i++;
+    }
+}
+

@@ -1,0 +1,19 @@
+﻿.sanPham {
+    width: 100%;
+}
+
+    .sanPham img {
+        float: left;
+        display: inline;
+    }
+
+    .sanPham .thongTinSp {
+        float: left;
+        display: block;
+        padding: 10px;
+    }
+
+.thongTinSp .tenSach {
+    font-weight: bold;
+    font-size: large;
+}
